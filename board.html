@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Luccy Sanchez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+
+    <style>
+        #sectionDerecha {
+        display: flex;
+        flex-direction: column;
+        background-color: #E7ECEF;
+        margin-left: 1%;
+        width: 50%;
+        padding: 20px;
+        border-radius: 5px;
+        }
+
+        #sectionDerecha h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #sectionDerecha h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        #sectionDerecha p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .gridContainer {
+            display: grid;
+            grid-template-columns: auto auto;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .categorias {
+            background-color: #C4C4C4;
+            display: flex;
+            width: 150px;
+            height: 30px;
+            margin-bottom: 10px;
+            align-items: center;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .categorias:hover {
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        .categorias h4 {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .categorias img {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        #fondo1 {
+            background-image: url("img/imagenFondo1.jpg");
+            background-color: #ccc;
+            background-position: center top;
+            background-size: cover;
+        }
+
+        #fondo2 {
+            background-image: url("img/imagenFondo2.jpg");
+            background-color: #ccc;
+            background-position: center top;
+            background-size: cover;
+        }
+
+        #fondo3 {
+            background-image: url("img/imagenFondo3.jpg");
+            background-color: #ccc;
+            background-position: center top;
+            background-size: cover;
+        }
+
+        .plantillas {
+            display: flex;
+            gap: 10px;
+        }
+
+        .plantilla {
+            background-color: #6096BA;
+            width: 350px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+        }
+        .plantilla:hover {
+            background-color: #A3CEF1;
+            transition: 0.1s;
+        }
+
+        .plantillaDeshabilitada {
+            background-color: #ccc;
+            width: 350px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+        }
+
+        .plantillaDeshabilitada:hover {
+            background-color: #8B8B89;
+            transition: 0.1s;
+        }
+
+        #buttonTableroCerrado:hover {
+            background-color: #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="cabeceraPagina">
+        <nav id="panelNavegacion">
+            <picture>
+                <img id="logo" src="img/Logo.jpg" alt="logo">
+            </picture>
+            <a class="enlaceNavegacion" href="index.html">Espacios de trabajo</a>
+            <a class="enlaceNavegacion" href="board.html">Board</a>
+            <a class="enlaceNavegacion" href="tableros.html">Tableros</a>
+            <a class="enlaceNavegacion" href="plantillas.html">Plantillas</a>
+            <div class="clear"></div>
+        </nav>
+    </header>
+    <main>
+        <div id="contenedorPrincipal">
+            <section id="sectionIzquierda">
+                <div class="itemsSection">
+                    <img src="img/imgTableros.png" alt="imagen tablero">
+                    <a href="tableros.html"><b>Tableros</b></a>
+                </div>
+                <div class="itemsSection">
+                    <img src="img/imgPlantillas.png" alt="imagen tablero">
+                    <a href="plantillas.html"><b>Plantillas</b></a>
+                </div>
+                <div class="itemsSection">
+                    <img src="img/imgInicio.png" alt="imagen tablero">
+                    <a href="index.html"><b>Inicio</b></a>
+                </div>
+                <div class="lineaDivisoria"></div>
+                
+                <p>Espacios de Trabajo</p>
+                
+                <div class="itemsSection">
+                    <img src="img/imgMiembros.png" alt="imagen tablero">
+                    <a href="board.html"><b>Board</b></a>
+                </div>
+            </section>
+            <section id="sectionDerecha">
+                <h2>Tablero</h2>
+                <span><b><en>SOF-S-MA-6-1</en></b></span>
+                <h3>Tableros más populares</h3>
+                <div class="gridContainer">
+                    <p>Empezar más rápido con una <i>plantilla de la comunidad</i>  o</p>
+                    <div class="categorias">
+                        <h4>Seleccionar</h4>
+                        <img src="img/icono_flecha.png" alt="seleccionar" style="width: 20;height: 20;">
+                    </div>
+                </div>                
+                <div class="plantillas">
+                    <div class="plantilla" id="fondo1">Gestion de Proyectos</div>
+                    <div class="plantilla" id="fondo2">Plantilla kanban</div>
+                    <div class="plantilla" id="fondo3">Tablero de Proyecto Simple</div>
+                </div>
+                <div>
+                    <h3>Tu espacio de trabajo</h3>
+                    <div class="plantillas">
+                        <div class="plantilla">Mi primer tablero</div>
+                        <div class="plantillaDeshabilitada"><a href="tableros.html">Crear nuevo tablero</a></div>
+                    </div>
+                    <br>
+                    <button id="buttonTableroCerrado"><strong>Ver todos los tableros cerrados</strong></button>
+                    
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="contenedorPrincipal">
+            <div class="cajaFooter">
+                <h3>Sobre Nosotros</h3>
+                <p>El mejor sistema para gestion de trabajos.</p>
+            </div>
+            <div class="cajaFooter">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html"><b>Inicio</b></a></li>
+                    <li><a href="plantillas.html"><b>plantillas</b></a></li>
+                    <li><a href="tableros.html"><b>tableros</b></a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="cajaFooter">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Teléfono: 09734234543</li>
+                    <li>Email: yoangel1221@gmail.com</li>
+                    <li>Dirección: Coop. Los vergeles, Guayaquil, Ecuador</li>
+                </ul>
+            </div>
+            
+        </div>
+        <div style="clear: both;"></div>
+        <p>&copy; 2024 Software de gestion. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

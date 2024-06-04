@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ramírez Sebastián">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+<style>
+    #contenedorPrincipalTab{
+    display: flex;
+    margin-top: 5%;
+    padding: 20px;
+    background-color: #FFFF;
+    gap: 20px;
+}
+
+.tablero {
+    display: flex;
+    gap: 10px;
+    max-width: 100%;
+    padding: 20px;
+  }
+  
+  .seccionTablero{
+    background-color: #E7ECEF;
+    border: 1px solid #ccc;
+  }
+  
+ .contenedor {
+    background-color: #A3CEF1;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    width: 200px; 
+  }
+  
+  .seccionTablero #contenedor{
+    width: 24px;
+    height: 24px;
+  }
+
+  .contenedor h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+  }
+  
+  .contenedorUnico {
+    padding: 20px;
+    width: 200px; 
+  }
+  
+  .contenedorUnico h3{
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    width: 150px;
+  }
+
+  .contenedorUnico .contenedorUnico h3{
+    background-color: #d9d9d9;
+    border-radius: 8px;
+  }
+
+  .cajaTxt {
+    background-color: #FFFF;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+  }
+
+  button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+  button:hover {
+    background-color: #218838;
+  }
+
+  details {
+    margin-top: 20px;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+    <header id="cabeceraPagina">
+      <nav id="panelNavegacion">
+        <picture>
+            <img id="logo" src="img/Logo.jpg" alt="logo">
+        </picture>
+        <a class="enlaceNavegacion" href="index.html">Espacios de trabajo</a>
+        <a class="enlaceNavegacion" href="board.html">Board</a>
+        <a class="enlaceNavegacion" href="tableros.html">Tableros</a>
+        <a class="enlaceNavegacion" href="plantillas.html">Plantillas</a>
+        <div class="clear"></div>
+    </nav>
+    </header>
+    <main>
+        <div id="contenedorPrincipalTab">
+          <section id="sectionIzquierda">
+            <div class="itemsSection">
+              <img src="img/imgTableros.png" alt="imagen tablero">
+              <a href="tableros.html"><b>Tableros</b></a>
+          </div>
+          <div class="itemsSection">
+              <img src="img/imgPlantillas.png" alt="imagen tablero">
+              <a href="plantillas.html"><b>Plantillas</b></a>
+          </div>
+          <div class="itemsSection">
+              <img src="img/imgInicio.png" alt="imagen tablero">
+              <a href="index.html"><b>Inicio</b></a>
+          </div>
+          <div class="lineaDivisoria"></div>
+          
+          <p>Espacios de Trabajo</p>
+          
+          <div class="itemsSection">
+              <img src="img/imgMiembros.png" alt="imagen tablero">
+              <a href="board.html"><b>Board</b></a>
+          </div>
+        </section>
+            <section class="seccionTablero">
+             <H2> Primer Tablero </H2>
+             <p> <em>En esta sección se podran crear listas de actividades añadiendo tarjetas con una descripción de actividad.</em></p>
+             <article>
+                <h3>Listas actuales</h3>
+            </article>
+            <div class="tablero">
+                <div class="contenedor">
+                    <h2>Tarea 1</h2>
+                    <div class="cajaTxt">Documento</div>
+                    <div class="cajaTxt">Codigo</div>
+                    <div class="cajaTxt"><button> + Añade una tarjeta</button></div>
+                </div>
+                <div class="contenedor">
+                    <h2>Tarea 2</h2>
+                    <div class="cajaTxt">Documento</div>
+                    <div class="cajaTxt">Codigo</div>
+                    <div class="cajaTxt"> <button> + Añade una tarjeta</button> </div>
+                </div>
+                <div class="contenedor">
+                    <h2>Tarea 3</h2>
+                    <div class="cajaTxt">Documento</div>
+                    <div class="cajaTxt"><button> + Añade una tarjeta</button></div>
+                </div>
+                <div class="contenedorUnico">
+                    <h3><button>Añade otra lista</button></h3>
+                </div>
+            </div>
+            <br>
+            <br>
+            <details>
+                <summary><strong>Más información</strong></summary>
+                <p><small><i>Pulse el boton <mark><b>"Añade otra lista"</b></mark> para añadir un nueva lista en el tablero.</i></small></p>
+                <p><small><i>Pulse el boton <mark><b>"Añade una tarjeta"</b></mark> para añadir una nueva tarjeta dentro de una lista ya existente.</i></small></p>
+            </details>
+        </section>
+        </div>
+    </main>
+    <footer>
+      <span class="contenedorPrincipal">
+          <div class="cajaFooter">
+              <h3>Sobre Nosotros</h3>
+              <p>El mejor sistema para gestion de trabajos.</p>
+          </div>
+          <div class="cajaFooter">
+              <h3>Enlaces Rápidos</h3>
+              <ul>
+                  <li><a href="index.html"><b>Inicio</b></a></li>
+                  <li><a href="plantillas.html"><b>plantillas</b></a></li>
+                  <li><a href="tableros.html"><b>tableros</b></a></li>
+                  <li><a href="#">Contacto</a></li>
+              </ul>
+          </div>
+          <div class="cajaFooter">
+              <h3>Contacto</h3>
+              <ul>
+                  <li>Teléfono: 09734234543</li>
+                  <li>Email: yoangel1221@gmail.com</li>
+                  <li>Dirección: Coop. Los vergeles, Guayaquil, Ecuador</li>
+              </ul>
+          </div>
+          
+      </span>
+      <div style="clear: both;"></div>
+      <p>&copy; 2024 Software de gestion. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

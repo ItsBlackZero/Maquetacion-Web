@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Espinoza Miguel">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+<style>
+    /* Estrategias de maquetacion utilizadas flex , grid y float */
+    /* Estilos section Visto Recientemente*/
+.sectionVistoRecientemente #iconoVistoRecientemente{
+    width: 24px;
+    height: 24px;
+}
+.sectionVistoRecientemente{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    width: 50%;
+}
+.contenedorTitulo{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    
+}
+.contenedorTitulo img{
+    margin-left: 20px;
+}
+.contenedorTitulo h1{
+    margin-left: 10px;
+}
+.contenedorTitulo[class=video]{
+    margin-top: 10px;
+}
+.contenedorVistoRecientemente{
+    width: 100%;
+    background-color: #E7ECEF;
+    border-radius: 5px;
+}
+
+#TablerosTrabajo{
+    display: flex;
+    padding: 20px;
+}
+.tablero{
+    background-color: #6096BA;
+    margin-left: 80px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+/* ************* */
+.contenedorTusEspaciosDeTrabajo{
+    display: grid;
+    grid-template-rows: 15% 25% 35% ;
+    background-color: #E7ECEF;
+    margin-top: 40px;
+    border-radius: 5px;
+    gap: 0;
+    margin-bottom: 50px;
+    
+}
+
+.contenedorEspaciosTitulo img{
+    float: left;
+    margin-top: 20px;
+    margin-left: 25px;
+    
+}
+.contenedorEspaciosTitulo h1{
+    float: left;
+    margin-left: 10px;
+}
+
+.tableroEspacios{
+    float: left;
+    margin-left: 90px;
+    margin-top: 3%;
+    background-color: #6096BA;
+    border-radius: 5px;
+}
+.video{
+    margin-top: 6%;
+    margin-left: 20%;
+}
+
+
+
+
+</style>
+</head>
+<body>
+    <header id="cabeceraPagina">
+        <nav id="panelNavegacion">
+            <picture>
+                <img id="logo" src="img/Logo.jpg" alt="logo">
+            </picture>
+            <a class="enlaceNavegacion" href="index.html">Espacios de trabajo</a>
+            <a class="enlaceNavegacion" href="board.html">Board</a>
+            <a class="enlaceNavegacion" href="tableros.html">Tableros</a>
+            <a class="enlaceNavegacion" href="plantillas.html">Plantillas</a>
+            <div class="clear"></div>
+        </nav>
+    </header>
+    <main>
+        <div id="contenedorPrincipal">
+            <section id="sectionIzquierda">
+                <div class="itemsSection">
+                    <img src="img/imgTableros.png" alt="imagen tablero">
+                    <a href="tableros.html"><b>Tableros</b></a>
+                </div>
+                <div class="itemsSection">
+                    <img src="img/imgPlantillas.png" alt="imagen tablero">
+                    <a href="plantillas.html"><b>Plantillas</b></a>
+                </div>
+                <div class="itemsSection">
+                    <img src="img/imgInicio.png" alt="imagen tablero">
+                    <a href="index.html"><b>Inicio</b></a>
+                </div>
+                <div class="lineaDivisoria"></div>
+                
+                <p>Espacios de Trabajo</p>
+                
+                <div class="itemsSection">
+                    <img src="img/imgMiembros.png" alt="imagen tablero">
+                    <a href="board.html"><b>Board</b></a>
+                </div>
+            </section>
+            <section class="sectionVistoRecientemente">
+                <div class="contenedorVistoRecientemente">
+                    <div class="contenedorTitulo">
+                        <img id="iconoVistoRecientemente" src="img/imgVistoRecientemente.png" alt="icono visto recientemente">
+                        <h1>Visto Recientemente</h1>       
+                    </div>
+                    <article id="TablerosTrabajo">
+                        <div class="tablero">
+                            <h4>Tablero de trabajo 1</h4>
+                        </div>
+                        <div class="tablero">
+                            <h4>Tablero de trabajo 2</h4>
+                        </div>
+                        <div class="tablero">
+                            <h4>Tablero de trabajo 3</h4>
+                        </div>
+                    </article>
+                </div>
+                <div class="clear"></div>
+                <div class="contenedorTusEspaciosDeTrabajo">
+                    <div class="contenedorEspaciosTitulo">
+                        <img id="iconoTusEspacioTrabajo" src="img/imgTusEspaciosTrabajo.png" alt="icono espacios trabajo">
+                        <h1>Tus <em>espacios</em> de trabajo</h1>
+                    </div>
+                    <article id="tablerosEspaciosTrabajo">
+                        <div class="tableroEspacios">
+                            <h4>Tablero de trabajo 1</h4>
+                        </div>
+                        <div class="tableroEspacios">
+                            <h4>Tablero de trabajo 2</h4>
+                        </div>
+                        <div class="tableroEspacios">
+                            <h4>Tablero de trabajo 3</h4>
+                        </div>
+                    </article>
+                    
+                </div>
+                    
+                
+            </section>
+        </div>
+        
+
+    </main>
+    <footer>
+        <div class="contenedorPrincipal">
+            <div class="cajaFooter">
+                <h3>Sobre Nosotros</h3>
+                <p>El mejor sistema para gestion de trabajos.</p>
+            </div>
+            <div class="cajaFooter">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html"><b>Inicio</b></a></li>
+                    <li><a href="plantillas.html"><b>plantillas</b></a></li>
+                    <li><a href="tableros.html"><b>tableros</b></a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="cajaFooter">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Teléfono: 09734234543</li>
+                    <li>Email: yoangel1221@gmail.com</li>
+                    <li>Dirección: Coop. Los vergeles, Guayaquil, Ecuador</li>
+                </ul>
+            </div>
+            
+        </div>
+        <div style="clear: both;"></div>
+        <p>&copy; 2024 Software de gestion. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
