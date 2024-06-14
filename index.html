@@ -88,6 +88,51 @@
     margin-left: 20%;
 }
 
+/* Estilos formulario */
+
+#ventanaEmergente{
+    width: 50ch;
+    height: 87ch;
+}
+
+#ventanaEmergente #formularioCrear{
+    display: flex;
+    flex-direction: column;
+    width:90%;
+    height: 800px;
+    background-color: #E7ECEF;
+    border-radius: 5px;
+    padding: 20px;
+}
+#ventanaEmergente #formularioCrear h1{
+    text-align: center;
+}
+#ventanaEmergente #formularioCrear label{
+    margin-bottom: 10px;
+}
+#ventanaEmergente #formularioCrear input{
+    margin-bottom: 10px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+}
+#ventanaEmergente #buttonEnviar{
+    font-weight: bold;
+    color: white;
+    background-color: #A3CEF1;
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+}
+#ventanaEmergente #buttonEnviar:hover{
+    background-color: #84A9C8;
+    transition: 0.1s;
+}
+#ventanaEmergente #buttonEnviar:active{
+    background-color: #6D91AE;
+}
+
 
 
 
@@ -104,9 +149,13 @@
             <a class="enlaceNavegacion" href="tableros.html">Tableros</a>
             <a class="enlaceNavegacion" href="plantillas.html">Plantillas</a>
             <div class="clear"></div>
+            <input type="button" id="buttonCrear" value="Crear">
         </nav>
     </header>
     <main>
+        <dialog id="ventanaEmergente">
+                
+        </dialog>
         <div id="contenedorPrincipal">
             <section id="sectionIzquierda">
                 <div class="itemsSection">
@@ -202,5 +251,259 @@
         <div style="clear: both;"></div>
         <p>&copy; 2024 Software de gestion. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        const buttonCrear = document.getElementById('buttonCrear');
+        const ventanaEmergente = document.getElementById('ventanaEmergente');
+        
+        function crearFormulario(){
+
+            // creando el formulario
+            const form = document.createElement('form');
+            form.setAttribute('id','formularioCrear');
+            form.setAttribute('method','dialog');
+
+            // creando el titulo
+            const titulo = document.createElement('h1');
+            titulo.textContent = 'Crear Tablero de Trabajo';
+            form.appendChild(titulo);
+
+            //creando el primer input nombre del tablero
+            const nombre = document.createElement('label');
+            nombre.setAttribute('for','nombre');
+            nombre.textContent = 'Nombre del Tablero';
+            form.appendChild(nombre);
+            
+            const inputNombre = document.createElement('input');
+            inputNombre.setAttribute('type','text');
+            inputNombre.setAttribute('id','nombre');
+            form.appendChild(inputNombre);
+            
+
+            // creando el segundo input descripcion del tablero
+
+            const descripcion = document.createElement('label');
+            descripcion.setAttribute('id','descripcion');
+            descripcion.textContent = 'Descripcion del Tablero';
+            form.appendChild(descripcion);
+
+            const inputDescripcion = document.createElement('input');
+            inputDescripcion.setAttribute('type','text');
+            inputDescripcion.setAttribute('id','descripcion');
+            inputDescripcion.style.height = '400px';
+            form.appendChild(inputDescripcion);
+
+            //creando el input de privacidad
+
+            const privacidad = document.createElement('label');
+            privacidad.setAttribute('id','privacidad');
+            privacidad.textContent = 'Privacidad del Tablero';
+            form.appendChild(privacidad);
+
+            const opcionesPrivacidad = ['Publico','Privado','Solo miembros'];
+            const selectPrivacidad = document.createElement('select');
+            selectPrivacidad.setAttribute('id','selectPrivacidad');
+
+            opcionesPrivacidad.forEach(opcion=> {
+                const option = document.createElement('option');
+                option.textContent = opcion;
+                selectPrivacidad.appendChild(option);
+            });
+
+            form.appendChild(selectPrivacidad);
+
+            // creando los botones de opcion
+
+            const tituloOpciones = document.createElement('h4');
+            tituloOpciones.textContent = 'Categoria del Tablero';
+            form.appendChild(tituloOpciones);
+            
+            const contenedorBotonesOpcion = document.createElement('div');
+            contenedorBotonesOpcion.setAttribute('id','contenedorBotonesOpcion');
+            contenedorBotonesOpcion.style.display = 'flex';
+            contenedorBotonesOpcion.style.justifyContent = 'center';
+            contenedorBotonesOpcion.style.alignItems = 'center';
+            form.appendChild(contenedorBotonesOpcion);
+
+            const opcionesCategoria = ['Trabajo','Personal','Estudio','Otro'];
+            const selectCategoria = document.createElement('radio');
+            selectCategoria.setAttribute('id','radioCategoria');
+
+            opcionesCategoria.forEach(opcion=> {
+                const radio = document.createElement('input');
+                radio.setAttribute('type','radio');
+                radio.setAttribute('name','categoria');
+                radio.setAttribute('value',opcion);
+
+                const label = document.createElement('label');
+                label.textContent = opcion;
+                radio.style.justifyContent = 'center';
+                radio.style.alignItems = 'left';
+                label.style.marginLeft = '10px';
+                radio.style.marginLeft = '10px';
+                contenedorBotonesOpcion.appendChild(radio);
+                contenedorBotonesOpcion.appendChild(label);
+                
+                
+            });
+
+            
+
+            // creando el checkList de color
+            const tituloCheck = document.createElement('h4');
+            tituloCheck.textContent = 'Color del Tablero';
+            tituloCheck.style.marginBottom = '5px';
+            form.appendChild(tituloCheck);
+
+            const opciones = ['Rojo','Azul','Verde','Amarillo'];
+
+            const contenedorCheck = document.createElement('div');
+            contenedorCheck.setAttribute('id','contenedorCheck');
+            form.appendChild(contenedorCheck);
+
+            opciones.forEach(opcion=> {
+                const checkColor = document.createElement('input');
+                checkColor.setAttribute('for','color');
+                checkColor.setAttribute('class','color');
+                checkColor.setAttribute('value',opcion);
+                checkColor.type = 'checkbox';
+
+                const label = document.createElement('label');
+                label.htmlFor = 'checkbox';
+                label.textContent = opcion;
+
+                label.style.marginLeft = '10px';
+                contenedorCheck.appendChild(checkColor);
+                contenedorCheck.appendChild(label);
+            });
+            contenedorCheck.style.display = 'flex';
+            contenedorCheck.style.alignItems = 'center';
+            contenedorCheck.style.justifyContent = 'center';
+
+
+            //creando input compartir
+
+            const compartir = document.createElement('label');
+            compartir.textContent = 'Desea compartir el tablero?';
+            form.appendChild(compartir);
+
+            const checkCompartir = document.createElement('radio');
+            const opcionesCompartir = ['Si','No'];
+            const contenedorCompartir = document.createElement('div');
+            contenedorCompartir.setAttribute('id','contenedorCompartir');
+            form.appendChild(contenedorCompartir);
+            opcionesCompartir.forEach(opcion=> {
+                const radio = document.createElement('input');
+                radio.setAttribute('type','radio');
+                radio.setAttribute('name','compartir');
+                radio.setAttribute('value',opcion);
+
+                const label = document.createElement('label');
+                label.textContent = opcion;
+                radio.style.justifyContent = 'center';
+                label.style.alignItems = 'center';
+                label.style.marginLeft = '10px';
+                radio.style.marginLeft = '10px';
+                contenedorCompartir.appendChild(radio);
+                contenedorCompartir.appendChild(label);
+            });
+
+            //creando el boton enviar
+            const buttonEnviar = document.createElement('button');
+            buttonEnviar.setAttribute('type','submit');
+            buttonEnviar.setAttribute('id','buttonEnviar');
+            buttonEnviar.textContent = 'Crear';
+
+            form.appendChild(buttonEnviar);
+
+            ventanaEmergente.appendChild(form);
+
+            buttonEnviar.addEventListener('click',function(){
+                
+                event.preventDefault();
+                if(!validarDatos()){
+
+                    var nuevoTablero = document.createElement('div');
+                    nuevoTablero.setAttribute('class','tableroEspacios');
+
+
+                    ventanaEmergente.close();
+                    form.remove();
+                }
+                
+            });
+        }
+        buttonCrear.addEventListener('click',function(){
+            ventanaEmergente.showModal();
+            crearFormulario();
+            
+        });
+
+        function crearTablero(){
+            var nuevoTablero = document.createElement('div');
+            nuevoTablero.setAttribute('class','tableroEspacios');
+            
+        }
+        function darColorTablero(){
+            var color = document.getElementsByClassName('color');
+            for(var i = 0; i < color.length; i++){
+                if(color[i].checked){
+                    console.log(color[i].value);
+                }
+            }
+        }
+
+        function validarDatos(){
+            var validarRadio = document.getElementsByName('categoria');
+            var validarNombre = document.getElementById('nombre');
+            var validarColor = document.getElementsByClassName('color');
+            var validarCompartir = document.getElementsByName('compartir');
+            //validando el nombre
+
+            if(validarNombre.value == ''){
+                alert('El nombre del tablero no puede estar vacio');
+                return false;
+            }
+
+            //Validando descripcion
+
+            //Validando color
+            for (var i = 0; i < validarColor.length; i++){
+                if(validarColor[i].checked){
+                    console.log(validarColor[i].value);
+                    return false;
+                }else{
+                    alert('No se ha seleccionado ningun color');
+ 
+                    break;
+                }
+            }
+            //validando los radio
+            
+            for(var i = 0; i < validarRadio.length; i++){
+                
+                if(validarRadio[i].checked){
+                    console.log(validarRadio[i].value);
+                    return false;
+                }else
+                {
+                    alert('No se ha seleccionado ninguna categoria');
+
+                    break;
+                }
+            }
+
+            //validando compartir
+            for(var i = 0; i < validarCompartir.length; i++){
+                if(validarCompartir[i].checked){
+                    console.log(validarCompartir[i].value);
+                    return false;
+                }else{
+                    alert('No se ha seleccionado ninguna opcion de compartir');
+
+                    break;
+                }
+            }
+        }
+    </script>
 </body>
 </html>

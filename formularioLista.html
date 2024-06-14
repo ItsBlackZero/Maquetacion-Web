@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ramírez Sebastián">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+<style>
+    #contenedorPrincipalTab{
+    display: flex;
+    margin-top: 5%;
+    padding: 20px;
+    background-color: #FFFF;
+    gap: 20px;
+}
+
+.tablero {
+    display: flex;
+    gap: 10px;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .seccionTablero{
+    background-color: #E7ECEF;
+    border: 1px solid #ccc;
+  }
+
+  details {
+    margin-top: 20px;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+  
+  #formLista{
+    margin-left: 15%;
+    height:100vh;
+    border-radius: 10px; 
+    width: 600px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  input[type="text"]{
+    width: 400px;
+    padding: 8px 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    }
+
+    textarea {
+    width: 400px;
+    padding: 8px 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    }
+
+   button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 400px;
+    }
+
+    button:hover {
+        background: #218838;
+    }
+</style>
+</head>
+<body>
+    <header id="cabeceraPagina">
+      <nav id="panelNavegacion">
+        <picture>
+            <img id="logo" src="img/Logo.jpg" alt="logo">
+        </picture>
+        <a class="enlaceNavegacion" href="index.html">Espacios de trabajo</a>
+        <a class="enlaceNavegacion" href="board.html">Board</a>
+        <a class="enlaceNavegacion" href="tableros.html">Tableros</a>
+        <a class="enlaceNavegacion" href="plantillas.html">Plantillas</a>
+        <div class="clear"></div>
+    </nav>
+    </header>
+    <main>
+        <div id="contenedorPrincipalTab">
+          <section id="sectionIzquierda">
+            <div class="itemsSection">
+              <img src="img/imgTableros.png" alt="imagen tablero">
+              <a href="tableros.html"><b>Tableros</b></a>
+          </div>
+          <div class="itemsSection">
+              <img src="img/imgPlantillas.png" alt="imagen tablero">
+              <a href="plantillas.html"><b>Plantillas</b></a>
+          </div>
+          <div class="itemsSection">
+              <img src="img/imgInicio.png" alt="imagen tablero">
+              <a href="index.html"><b>Inicio</b></a>
+          </div>
+          <div class="lineaDivisoria"></div>
+          
+          <p>Espacios de Trabajo</p>
+          
+          <div class="itemsSection">
+              <img src="img/imgMiembros.png" alt="imagen tablero">
+              <a href="board.html"><b>Board</b></a>
+          </div>
+        </section>
+            <section class="seccionTablero">
+             <H2> Formulario de Lista</H2>
+             <form id="formLista">
+                <div>
+                    <label for="nombreList"> Nombre de la lista: </label><br>
+                    <input type="text" id="nombreList" name="nombreList">
+                </div><br>
+                <div>
+                    <label for="descripcionList">Descripción de la lista:</label><br>
+                    <textarea id="descripcionList" name="descripcionList"></textarea><br>
+                </div><br>
+                <div>
+                    <label for="tipoList">Tipo de Lista:</label><br>
+                    <select id="tipoList" name="tipoList">
+                        <option value="personal">->Personal</option>
+                        <option value="trabajo">->Trabajo</option>
+                        <option value="estudio">->Estudio</option>
+                    </select>
+                </div><br>
+                <div>
+                    <label>Prioridad de la lista:</label><br>
+                    <input type="radio" id="prioridadList" name="prioridadList" value="alta"> -> Alta <br>
+                    <input type="radio" id="prioridadList" name="prioridadList" value="media"> -> Media <br>
+                    <input type="radio" id="prioridadList" name="prioridadList" value="baja"> -> Baja<br>
+                </div><br>
+                <div>
+                    <label for="estadoAvanceList">Estado de avance de la lista:</label><br>
+                    <select id="estadoAvanceList" name="estadoAvanceList" multiple>
+                        <option value ="nuevo">-> Nuevo</option>
+                        <option value ="progreso">-> En progreso</option>
+                        <option value ="completo">-> Completo</option>
+                    </select>
+                </div><br>
+                <div>
+                    <label for="recordatorio">¿Usted desea un recordatorio para está lista?</label><br>
+                    <input type="checkbox" id="recordatorio" name="recordatorio">
+                </div><br>
+                <button type="submit">Enviar</button><br>           
+            </form>
+            <script>
+                document.getElementById('formLista').addEventListener('submit', function(event) {
+                    var nombreList = document.getElementById("nombreList").value;
+                    var descripcionList = document.getElementById("descripcionList").value;
+                    var tipoList = document.getElementById("tipoList").value;
+                    var prioridadList = document.getElementById("prioridadList").value;
+                    var prioridadError = document.querySelector('input[name="prioridadList"]:checked');
+                    var estados= document.querySelectorAll('#estadoAvanceList option:checked');
+
+                    if(nombreList.length <3){
+                       alert("El nombre de la lista debe tener al menos 3 caracteres.");
+                       return false;
+                       event.preventDefault();
+                    }
+                    
+                    if(nombreList===''){
+                        alert("Por favor, proporcione el nombre de la lista.");
+                        return false;
+                        event.preventDefault();
+                    }
+                    
+                    if(descripcionList.length >200){
+                        alert("La descripción no puede tener más de 200 caracteres.");
+                        return false;
+                        event.preventDefault();
+                    }
+                    
+                    if(descripcionList.trim() ===""){
+                       alert("Por favor, proporciona una descripción para la lista.");
+                       return false;
+                       event.preventDefault();
+                    }
+                    
+                    if(tipoList ==""){
+                       alert("Por favor, selecciona un tipo de lista.")
+                       return false;
+                       event.preventDefault();
+                    }
+                    
+                    if(!prioridadError){
+                       alert("Por favor, seleccione una prioridad.");
+                       return false;
+                       event.preventDefault();
+                    }
+                  
+                    if(estados.length > 2){
+                       alert("Por favor, seleccionar hasta 2 opciones.");
+                       return false;
+                       event.preventDefault();
+                    }
+
+                    if(estados.length < 1){
+                       alert("Por favor, seleccione un estado para la lista.");
+                       return false;
+                       event.preventDefault();
+                    }
+
+                    if(nombreList=="" || descripcionList =="" || tipoList =="" || prioridadList =="" || estados==""){
+                      alert("Porfavor, complete todos los campos.");
+                      return false;
+                      event.preventDefault();
+                    }else{
+                        alert("La lista fue creada con exito.");
+                        return true;
+                    }
+                    return true;
+                });
+            </script>
+            <br>
+            <br>
+            <details>
+                <summary><strong>Más información</strong></summary>
+                <p><small><i>-> Para terminar el proceso, debe completar el formulario mostrado y pulsar el boton <mark><b>"Enviar"</b></mark>.</i></small></p>
+                <p><small><i>-> Pulse el boton <mark><b>"Enviar"</b></mark> para añadir un nueva lista en el tablero.</i></small></p>
+                <p><small><i>-> El nombre de la lista debe contener al menos 3 caracteres.</i></small></p>
+                <p><small><i>-> La descripcion de la lista permite hasta 200 caracteres.</i></small></p>
+                <p><small><i>-> Seleccione el tipo de lista antes de enviar, por consiguiente el sistema elige el tipo estudio.</i></small></p>
+            </details>
+        </section>
+        </div>
+    </main>
+    <footer>
+      <span class="contenedorPrincipal">
+          <div class="cajaFooter">
+              <h3>Sobre Nosotros</h3>
+              <p>El mejor sistema para gestion de trabajos.</p>
+          </div>
+          <div class="cajaFooter">
+              <h3>Enlaces Rápidos</h3>
+              <ul>
+                  <li><a href="index.html"><b>Inicio</b></a></li>
+                  <li><a href="plantillas.html"><b>plantillas</b></a></li>
+                  <li><a href="tableros.html"><b>tableros</b></a></li>
+                  <li><a href="#">Contacto</a></li>
+              </ul>
+          </div>
+          <div class="cajaFooter">
+              <h3>Contacto</h3>
+              <ul>
+                  <li>Teléfono: 09734234543</li>
+                  <li>Email: yoangel1221@gmail.com</li>
+                  <li>Dirección: Coop. Los vergeles, Guayaquil, Ecuador</li>
+              </ul>
+          </div>
+          
+      </span>
+      <div style="clear: both;"></div>
+      <p>&copy; 2024 Software de gestion. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

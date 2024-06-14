@@ -16,32 +16,33 @@
     display: flex;
     flex-direction: column; 
     margin-left: 5%;
-    width: 50%;
+    width: 45%;
     align-items: center;
-    padding: 20px; 
-}
+    padding: 10px; 
+    }
 
-.categoriasDestacadas {
+    .categoriasDestacadas {
     background-color: #E7ECEF; 
     padding: 20px;
-}
+    }
 
-.contenidoCategoriaDestacadas{
+    .contenidoCategoriaDestacadas {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
 }
 
 .categoriasDestacadas figure {
+    margin: 0 21px; 
     text-align: center; 
-
 }
-
 
 .categoriasDestacadas img {
-    width: 80px;
+    width: 40px;
     height: auto;
-
+    cursor: pointer;
 }
+
 
 .Educacion{
     background-color: #E7ECEF;
@@ -55,29 +56,74 @@
 .contenidoEducacion figure {
     
     text-align: center; 
-    width: 303px; 
+    width: 200px; 
     margin: 5px; 
 }
 
 .contenidoEducacion img {
-    width: 250px;
-    height: 100;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
 }
 
 .contenidoEducacion p{
     font-style: italic;
     text-align: left;
+    font-size: 12px;
 }
 
 .contenidoEducacion figcaption{
     font-weight: bold;
 }
-    </style>
+</style>
+
+    <script type="text/javascript">
+    function PlantillaLibros_encendido(enlace){
+       //obtener los elementos que voy a manipular :3
+       let img = document.querySelector("#LibrosapiladosEducacion");  
+       img.src="img/Plantilla_libro_funcion.png";
+
+    }
+
+    function PlantillaLibros_apagado (enlace) {
+       let img = document.querySelector("#LibrosapiladosEducacion");
+       img.src="img/eduacionlibrosaplidados.jpg";
+       img.style.border ="none";
+    }
+
+    function PlantillaMedicina_encendido(enlace){
+       //obtener los elementos que voy a manipular :3
+       let img = document.querySelector("#Medicina");  
+       img.src="img/Plantilla_Medicina_funcion.jpg";
+    }
+    
+    function PlantillaMedicina_apagado (enlace) {
+        //obtener los elementos a manipular
+       let img = document.querySelector("#Medicina");
+       // manipular los elementos 
+       img.src="img/Educacionmedicina.jpg";
+       img.style.border ="none";
+    }
+
+    function PlantillaPlantas_encendido(enlace){
+       //obtener los elementos que voy a manipular :3
+       let img = document.querySelector("#Plantas");  
+       img.src="img/Plantilla_Plantas_funcion.jpg";
+    }
+    
+    function PlantillaPlantas_apagado (enlace) {
+        //obtener los elementos a manipular
+       let img = document.querySelector("#Plantas");
+       img.src="img/Educacionplantasflores.webp";
+       img.style.border ="none";
+    }
+
+   </script>
 </head>
 <body>
     <header id="cabeceraPagina">
         <nav id="panelNavegacion">
-            picture>
+            <picture>
                 <img id="logo" src="img/Logo.jpg" alt="logo">
             </picture>
             <a class="enlaceNavegacion" href="index.html">Espacios de trabajo</a>
@@ -111,6 +157,13 @@
                     <img src="img/imgMiembros.png" alt="imagen tablero">
                     <a href="board.html"><b>Board</b></a>
                 </div>
+
+                <p>Personalizar Plantillas</p>
+                <div class="itemsSection">
+                    <img src="img/imgMiembros.png" alt="imagen tablero">
+                    <a href="FromPlantilla.html"><b>Personalizar</b></a>
+                </div>
+
             </section>
 
             <section class="sectionDerecha">
@@ -144,17 +197,17 @@
                     <h2>Educacion</h2> 
                     <div class="contenidoEducacion">
                         <figure>
-                            <img id="LibrosapiladosEducacion" src="img/eduacionlibrosaplidados.jpg" alt="LibrosapiladosEducacion">
+                            <img id="LibrosapiladosEducacion" src="img/eduacionlibrosaplidados.jpg" onmouseenter="PlantillaLibros_encendido(this)" onmouseout="PlantillaLibros_apagado(this)"  alt="LibrosapiladosEducacion">
                             <figcaption>PLantilla Libros</figcaption>
-                            <p>Por Kelly Theisen, profesora asistente de química Manténgase organizado en un entorno de aprendizaje remoto</p>
+                            <p>Por Kelly Theisen, profesora asistente de química Manténgase organizado en un entorno de aprendizaje</p>
                         </figure>
                         <figure>
-                            <img class="Medicina" src="img/Educacionmedicina.jpg" alt="Medicina">
+                            <img id="Medicina" src="img/Educacionmedicina.jpg" onmouseenter="PlantillaMedicina_encendido(this)" onmouseout="PlantillaMedicina_apagado(this)" alt="Medicina">
                             <figcaption>PLantilla Medicina</figcaption>
                             <p>Por lisiis, profesora asistente de química Manténgase organizado en un entorno de aprendizaje remoto</p>
                         </figure>
                         <figure>
-                            <img class="Plantas" src="img/Educacionplantasflores.webp" alt="Plantas">
+                            <img id="Plantas" src="img/Educacionplantasflores.webp" onmouseenter="PlantillaPlantas_encendido(this)" onmouseout="PlantillaPlantas_apagado(this)" alt="Plantas">
                             <figcaption>PLantilla Plantas</figcaption>
                             <p>Por lisiis, profesora asistente de química Manténgase organizado en un entorno de aprendizaje remoto</p>
                         </figure>

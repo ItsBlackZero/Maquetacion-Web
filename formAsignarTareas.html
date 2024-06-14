@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Luccy Sanchez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+
+    <style>
+        #seccionDerecha, #lista-tareas {
+            display: flex;
+            flex-direction: column;
+            background-color: #E7ECEF;
+            margin-left: 1%;
+            width: 25%;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .grupo-formulario{
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select{
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        textarea, input {
+            width: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #6096BA;
+            color: black;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        
+        #listaTareas li {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="cabeceraPagina">
+        <nav id="panelNavegacion">
+            <picture>
+                <img id="logo" src="img/Logo.jpg" alt="logo">
+            </picture>
+            <a class="enlaceNavegacion" href="">Espacios de trabajo</a>
+            <a class="enlaceNavegacion" href="">Reciente</a>
+            <a class="enlaceNavegacion" href="">Marcado</a>
+            <a class="enlaceNavegacion" href="">Plantillas</a>
+            <div class="clear"></div>
+            <input id="buttonCrear" type="button" value="Crear">
+        </nav>
+    </header>
+    <main>
+        <div id="contenedorPrincipal">
+            <section id="sectionIzquierda">
+                <div class="itemsSection">
+                    <img src="img/imgTableros.png" alt="imagen tablero">
+                    <h4>Tableros</h4>
+                </div>
+                <div class="itemsSection">
+                    <img src="img/imgPlantillas.png" alt="imagen tablero">
+                    <h4>Plantillas</h4>
+                </div>
+                <div class="itemsSection">
+                    <img src="img/imgInicio.png" alt="imagen tablero">
+                    <h4>Inicio</h4>
+                </div>
+                <div class="lineaDivisoria"></div>
+                <p>Espacios de Trabajo</p>
+                <div class="itemsSection">
+                    <img src="img/imgMiembros.png" alt="imagen tablero">
+                    <h4>Miembros</h4>
+                </div>
+            </section>
+            <section id="seccionDerecha">
+                <h2>Agregar Tarea</h2>
+                <form id="formularioTarea">
+                  <div class="grupo-formulario">
+                    <label for="proyecto">Proyecto:</label>
+                    <select id="proyecto" name="proyecto">
+                      <option value="">Selecciona un proyecto</option>
+                      <option value="proyecto1">Mi primer tablero</option>
+                      <option value="proyecto2">Educacion en casa</option>
+                    </select>
+                  </div>
+                  <div class="grupo-formulario">
+                    <label for="nombreTarea">Nombre de la tarea:</label>
+                    <input type="text" id="nombreTarea" name="nombreTarea">
+                  </div>
+                  <div class="grupo-formulario">
+                    <label for="descripcionTarea">Descripción:</label>
+                    <textarea id="descripcionTarea" name="descripcionTarea"></textarea>
+                  </div>
+                  <div class="grupo-formulario">
+                    <label for="fechaTarea">Fecha de vencimiento:</label>
+                    <input type="date" id="fechaTarea" name="fechaTarea">
+                  </div>
+                  <div class="grupo-formulario">
+                    <label for="prioridadTarea">Prioridad:</label>
+                    <select id="prioridadTarea" name="prioridadTarea">
+                      <option value="baja">Baja</option>
+                      <option value="media">Media</option>
+                      <option value="alta">Alta</option>
+                    </select>
+                  </div>
+                  <button type="submit">Agregar tarea</button>
+                </form>
+            </section> 
+            <section id="lista-tareas">
+                <h2>Tareas</h2>
+                <ul id="listaTareas"></ul>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Añadir event listener al formulario de tarea para manejar la presentación
+        const formularioTarea = document.getElementById('formularioTarea');
+        formularioTarea.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir la presentación del formulario por defecto
+
+            // Obtener datos de la tarea del formulario
+            const proyecto = document.getElementById('proyecto').value;
+            const nombreTarea = document.getElementById('nombreTarea').value;
+            const descripcionTarea = document.getElementById('descripcionTarea').value;
+            const fechaTarea = document.getElementById('fechaTarea').value;
+            const prioridadTarea = document.getElementById('prioridadTarea').value;
+
+            // Validar los datos de la tarea
+            if (proyecto === '0' || nombreTarea === '' || descripcionTarea === ''|| fechaTarea === '') {
+                alert('Faltan datos por ingresar o seleccionar');
+                return;
+            }
+
+            if(nombreTarea.length >48 ){
+                alert('La descripcion no debe de sobrepasar de 48 caracteres \n');
+                return;
+            }
+            
+            if(descripcionTarea.length >48){
+                alert('La descripcion no debe de sobrepasar de 48 caracteres \n');
+                return;
+            }
+
+            
+            // Crear un objeto de tarea
+            const tarea = {proyecto: proyecto, nombreTarea: nombreTarea, descripcionTarea: descripcionTarea, 
+            fechaTarea: fechaTarea, prioridadTarea: prioridadTarea};
+
+            // Añadir la tarea a la lista de tareas (reemplazar con tu mecanismo de almacenamiento de tareas)
+            const listaTareas = document.getElementById('listaTareas');
+            const elementoLista = document.createElement('li');
+            elementoLista.textContent = `${tarea.nombreTarea} - Vencimiento: ${tarea.fechaTarea} - Descripcion: ${tarea.descripcionTarea}`;
+            listaTareas.appendChild(elementoLista);
+
+            // Limpiar el formulario
+            formularioTarea.reset();
+        });
+
+    </script>
+  
+</body>
+</html>
+

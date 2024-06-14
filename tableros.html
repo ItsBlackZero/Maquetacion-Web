@@ -108,6 +108,7 @@
         <a class="enlaceNavegacion" href="board.html">Board</a>
         <a class="enlaceNavegacion" href="tableros.html">Tableros</a>
         <a class="enlaceNavegacion" href="plantillas.html">Plantillas</a>
+        <a class="enlaceNavegacion" href="formularioLista.html">Añade otra lista</a>
         <div class="clear"></div>
     </nav>
     </header>
@@ -143,24 +144,32 @@
             </article>
             <div class="tablero">
                 <div class="contenedor">
-                    <h2>Tarea 1</h2>
+                    <h2>Trabajo Grupal</h2>
+                    <p><small> Proyecto parcial grupo B.</small></p>
+                    <p><small><strong>Trabajo - Alta</strong></small></p>
                     <div class="cajaTxt">Documento</div>
                     <div class="cajaTxt">Codigo</div>
                     <div class="cajaTxt"><button> + Añade una tarjeta</button></div>
                 </div>
                 <div class="contenedor">
                     <h2>Tarea 2</h2>
+                    <p><small> Realizar un ensayo.</small></p>
+                    <p><small><strong>Estudio - Media</strong></small></p>
                     <div class="cajaTxt">Documento</div>
                     <div class="cajaTxt">Codigo</div>
                     <div class="cajaTxt"> <button> + Añade una tarjeta</button> </div>
                 </div>
                 <div class="contenedor">
-                    <h2>Tarea 3</h2>
+                    <h2>Poema</h2>
+                    <p><small> Hacer un poema sobre un tema de interes.</small></p>
+                    <p><small><strong>Personal - Baja</strong></small></p>
                     <div class="cajaTxt">Documento</div>
                     <div class="cajaTxt"><button> + Añade una tarjeta</button></div>
                 </div>
                 <div class="contenedorUnico">
-                    <h3><button>Añade otra lista</button></h3>
+                    <ul>
+                      <a href="formularioLista.html"><button><b>Añade otra lista</b></button></a>
+                    </ul>
                 </div>
             </div>
             <br>
@@ -172,6 +181,20 @@
             </details>
         </section>
         </div>
+        <script>
+          const botonesAñadirTarjeta = document.querySelectorAll('.cajaTxt button');
+      
+          botonesAñadirTarjeta.forEach(function(boton) {
+              boton.addEventListener('click', function() {
+                  const tarjetaNueva = document.createElement('div');
+                  const contenedorMayor = boton.parentElement;
+                  tarjetaNueva.className = 'cajaTxt';
+                  tarjetaNueva.textContent = 'tarjeta nueva';
+                  contenedorMayor.insertBefore(tarjetaNueva, contenedorMayor.lastElementChild);
+              });
+          });
+      </script>
+      
     </main>
     <footer>
       <span class="contenedorPrincipal">
@@ -193,7 +216,7 @@
               <ul>
                   <li>Teléfono: 09734234543</li>
                   <li>Email: yoangel1221@gmail.com</li>
-                  <li>Dirección: Coop. Los vergeles, Guayaquil, Ecuador</li>
+                <li>Dirección: Coop. Los vergeles, Guayaquil, Ecuador</li>
               </ul>
           </div>
           
