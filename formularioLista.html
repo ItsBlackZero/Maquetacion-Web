@@ -83,6 +83,7 @@
     button:hover {
         background: #218838;
     }
+    
 </style>
 </head>
 <body>
@@ -100,7 +101,7 @@
     </header>
     <main>
         <div id="contenedorPrincipalTab">
-          <section id="sectionIzquierda">
+          <div id="sectionIzquierda">
             <div class="itemsSection">
               <img src="img/imgTableros.png" alt="imagen tablero">
               <a href="tableros.html"><b>Tableros</b></a>
@@ -121,9 +122,9 @@
               <img src="img/imgMiembros.png" alt="imagen tablero">
               <a href="board.html"><b>Board</b></a>
           </div>
-        </section>
+        </div>
             <section class="seccionTablero">
-             <H2> Formulario de Lista</H2>
+             <h2> Formulario de Lista</h2>
              <form id="formLista">
                 <div>
                     <label for="nombreList"> Nombre de la lista: </label><br>
@@ -136,6 +137,7 @@
                 <div>
                     <label for="tipoList">Tipo de Lista:</label><br>
                     <select id="tipoList" name="tipoList">
+                        <option value="0">->Seleccione..</option>
                         <option value="personal">->Personal</option>
                         <option value="trabajo">->Trabajo</option>
                         <option value="estudio">->Estudio</option>
@@ -143,9 +145,9 @@
                 </div><br>
                 <div>
                     <label>Prioridad de la lista:</label><br>
-                    <input type="radio" id="prioridadList" name="prioridadList" value="alta"> -> Alta <br>
-                    <input type="radio" id="prioridadList" name="prioridadList" value="media"> -> Media <br>
-                    <input type="radio" id="prioridadList" name="prioridadList" value="baja"> -> Baja<br>
+                    <input type="radio" id="prioridadAlta" name="prioridadList" value="alta"> -> Alta <br>
+                    <input type="radio" id="prioridadMedia" name="prioridadList" value="media"> -> Media <br>
+                    <input type="radio" id="prioridadBaja" name="prioridadList" value="baja"> -> Baja<br>
                 </div><br>
                 <div>
                     <label for="estadoAvanceList">Estado de avance de la lista:</label><br>
@@ -166,67 +168,34 @@
                     var nombreList = document.getElementById("nombreList").value;
                     var descripcionList = document.getElementById("descripcionList").value;
                     var tipoList = document.getElementById("tipoList").value;
-                    var prioridadList = document.getElementById("prioridadList").value;
-                    var prioridadError = document.querySelector('input[name="prioridadList"]:checked');
+                    var prioridadList = document.querySelector('input[name="prioridadList"]:checked');
                     var estados= document.querySelectorAll('#estadoAvanceList option:checked');
 
-                    if(nombreList.length <3){
-                       alert("El nombre de la lista debe tener al menos 3 caracteres.");
-                       return false;
-                       event.preventDefault();
-                    }
-                    
-                    if(nombreList===''){
-                        alert("Por favor, proporcione el nombre de la lista.");
-                        return false;
-                        event.preventDefault();
-                    }
-                    
-                    if(descripcionList.length >200){
-                        alert("La descripción no puede tener más de 200 caracteres.");
-                        return false;
-                        event.preventDefault();
-                    }
-                    
-                    if(descripcionList.trim() ===""){
-                       alert("Por favor, proporciona una descripción para la lista.");
-                       return false;
-                       event.preventDefault();
-                    }
-                    
-                    if(tipoList ==""){
-                       alert("Por favor, selecciona un tipo de lista.")
-                       return false;
-                       event.preventDefault();
-                    }
-                    
-                    if(!prioridadError){
-                       alert("Por favor, seleccione una prioridad.");
-                       return false;
-                       event.preventDefault();
-                    }
-                  
-                    if(estados.length > 2){
-                       alert("Por favor, seleccionar hasta 2 opciones.");
-                       return false;
-                       event.preventDefault();
+                    let isValid = true;
+                    let errorMsg = "";
+
+                    // Validaciones
+                    if (nombreList.length < 3) {
+                        isValid = false;
+                        errorMsg += "El nombre de la lista debe tener al menos 3 caracteres.\n";
                     }
 
-                    if(estados.length < 1){
-                       alert("Por favor, seleccione un estado para la lista.");
-                       return false;
-                       event.preventDefault();
+                    if (descripcionList.length > 200) {
+                        isValid = false;
+                        errorMsg += "La descripción no puede tener más de 200 caracteres.\n";
                     }
 
-                    if(nombreList=="" || descripcionList =="" || tipoList =="" || prioridadList =="" || estados==""){
-                      alert("Porfavor, complete todos los campos.");
-                      return false;
-                      event.preventDefault();
-                    }else{
-                        alert("La lista fue creada con exito.");
-                        return true;
+                    if (nombreList === "" || descripcionList === "" || tipoList === "0" || !prioridadList || estados.length === 0) {
+                        isValid = false;
+                        errorMsg += "Por favor, complete todos los campos.\n";
                     }
-                    return true;
+
+                    if (isValid) {
+                        alert("La lista fue creada con éxito.");
+                        this.submit();
+                    } else {
+                        alert(errorMsg);
+                    }
                 });
             </script>
             <br>
@@ -243,7 +212,7 @@
         </div>
     </main>
     <footer>
-      <span class="contenedorPrincipal">
+      <div class="contenedorPrincipal">
           <div class="cajaFooter">
               <h3>Sobre Nosotros</h3>
               <p>El mejor sistema para gestion de trabajos.</p>
@@ -266,7 +235,7 @@
               </ul>
           </div>
           
-      </span>
+        </div>
       <div style="clear: both;"></div>
       <p>&copy; 2024 Software de gestion. Todos los derechos reservados.</p>
   </footer>

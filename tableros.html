@@ -50,21 +50,18 @@
   }
   
   .contenedorUnico {
-    padding: 20px;
-    width: 200px; 
-  }
-  
-  .contenedorUnico h3{
-    font-size: 1.2em;
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    width: 150px;
+    width: 200px;
+    background-color: #28a745;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white; 
   }
-
-  .contenedorUnico .contenedorUnico h3{
-    background-color: #d9d9d9;
-    border-radius: 8px;
+  .contenedorUnico:hover {
+    background-color: #218838;
   }
 
   .cajaTxt {
@@ -114,7 +111,7 @@
     </header>
     <main>
         <div id="contenedorPrincipalTab">
-          <section id="sectionIzquierda">
+          <div id="sectionIzquierda">
             <div class="itemsSection">
               <img src="img/imgTableros.png" alt="imagen tablero">
               <a href="tableros.html"><b>Tableros</b></a>
@@ -135,7 +132,7 @@
               <img src="img/imgMiembros.png" alt="imagen tablero">
               <a href="board.html"><b>Board</b></a>
           </div>
-        </section>
+        </div>
             <section class="seccionTablero">
              <H2> Primer Tablero </H2>
              <p> <em>En esta sección se podran crear listas de actividades añadiendo tarjetas con una descripción de actividad.</em></p>
@@ -166,10 +163,8 @@
                     <div class="cajaTxt">Documento</div>
                     <div class="cajaTxt"><button> + Añade una tarjeta</button></div>
                 </div>
-                <div class="contenedorUnico">
-                    <ul>
-                      <a href="formularioLista.html"><button><b>Añade otra lista</b></button></a>
-                    </ul>
+                <div>
+                    <div class="contenedorUnico"><a href="formularioLista.html">Añade otra lista</a></div>
                 </div>
             </div>
             <br>
@@ -197,7 +192,7 @@
       
     </main>
     <footer>
-      <span class="contenedorPrincipal">
+      <div class="contenedorPrincipal">
           <div class="cajaFooter">
               <h3>Sobre Nosotros</h3>
               <p>El mejor sistema para gestion de trabajos.</p>
@@ -220,7 +215,7 @@
               </ul>
           </div>
           
-      </span>
+        </div>
       <div style="clear: both;"></div>
       <p>&copy; 2024 Software de gestion. Todos los derechos reservados.</p>
   </footer>

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta author="Eliud Robalino">
+    <meta name="author" content="Eliud Robalino">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
@@ -12,111 +12,121 @@
     <style>
         /* Estilos por Eliud Robalino*/
 
-  .sectionDerecha {
-    display: flex;
-    flex-direction: column; 
-    margin-left: 5%;
-    width: 45%;
-    align-items: center;
-    padding: 10px; 
-    }
+        .sectionDerecha {
+            display: flex;
+            flex-direction: column; 
+            margin-left: 5%;
+            width: 45%;
+            align-items: center;
+            padding: 10px; 
+        }
 
-    .categoriasDestacadas {
-    background-color: #E7ECEF; 
-    padding: 20px;
-    }
+        .categoriasDestacadas {
+            background-color: #E7ECEF; 
+            padding: 20px;
+        }
 
-    .contenidoCategoriaDestacadas {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-}
+        .contenidoCategoriaDestacadas {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+        }
 
-.categoriasDestacadas figure {
-    margin: 0 21px; 
-    text-align: center; 
-}
+        .categoriasDestacadas figure {
+            margin: 0 21px; 
+            text-align: center; 
+        }
 
-.categoriasDestacadas img {
-    width: 40px;
-    height: auto;
-    cursor: pointer;
-}
+        .categoriasDestacadas img {
+            width: 40px;
+            height: auto;
+            cursor: pointer;
+        }
 
+        .Educacion{
+            background-color: #E7ECEF;
+            margin-top: 10px;
+        }
 
-.Educacion{
-    background-color: #E7ECEF;
-    margin-top: 10px;
-}
-.contenidoEducacion {
-    display: flex;
-    justify-content: space-between; 
-}
+        .Educacion h2{
+            padding-left: 20px;
+        }
 
-.contenidoEducacion figure {
-    
-    text-align: center; 
-    width: 200px; 
-    margin: 5px; 
-}
+        .contenidoEducacion {
+            display: flex;
+            justify-content: space-between; 
+        }
 
-.contenidoEducacion img {
-    width: 150px;
-    height: 150px;
-    cursor: pointer;
-}
+        .contenidoEducacion figure {
+            
+            text-align: center; 
+            width: 200px; 
+            margin: 5px; 
+        }
 
-.contenidoEducacion p{
-    font-style: italic;
-    text-align: left;
-    font-size: 12px;
-}
+        .contenidoEducacion img {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
 
-.contenidoEducacion figcaption{
-    font-weight: bold;
-}
-</style>
+        .contenidoEducacion p{
+            font-style: italic;
+            text-align: left;
+            font-size: 12px;
+            text-align: center;
+        }
 
-    <script type="text/javascript">
-    function PlantillaLibros_encendido(enlace){
-       //obtener los elementos que voy a manipular :3
-       let img = document.querySelector("#LibrosapiladosEducacion");  
-       img.src="img/Plantilla_libro_funcion.png";
+        .contenidoEducacion div{
+            padding: 15px;
+        }
 
-    }
+        .contenidoEducacion figcaption{
+            font-weight: bold;
+        }
 
-    function PlantillaLibros_apagado (enlace) {
-       let img = document.querySelector("#LibrosapiladosEducacion");
-       img.src="img/eduacionlibrosaplidados.jpg";
-       img.style.border ="none";
-    }
+    </style>
 
-    function PlantillaMedicina_encendido(enlace){
-       //obtener los elementos que voy a manipular :3
-       let img = document.querySelector("#Medicina");  
-       img.src="img/Plantilla_Medicina_funcion.jpg";
-    }
-    
-    function PlantillaMedicina_apagado (enlace) {
-        //obtener los elementos a manipular
-       let img = document.querySelector("#Medicina");
-       // manipular los elementos 
-       img.src="img/Educacionmedicina.jpg";
-       img.style.border ="none";
-    }
+    <script>
+        function PlantillaLibros_encendido(enlace){
+        //obtener los elementos que voy a manipular :3
+        let img = document.querySelector("#LibrosapiladosEducacion");  
+        img.src="img/Plantilla_libro_funcion.png";
 
-    function PlantillaPlantas_encendido(enlace){
-       //obtener los elementos que voy a manipular :3
-       let img = document.querySelector("#Plantas");  
-       img.src="img/Plantilla_Plantas_funcion.jpg";
-    }
-    
-    function PlantillaPlantas_apagado (enlace) {
-        //obtener los elementos a manipular
-       let img = document.querySelector("#Plantas");
-       img.src="img/Educacionplantasflores.webp";
-       img.style.border ="none";
-    }
+        }
+
+        function PlantillaLibros_apagado (enlace) {
+        let img = document.querySelector("#LibrosapiladosEducacion");
+        img.src="img/eduacionlibrosaplidados.jpg";
+        img.style.border ="none";
+        }
+
+        function PlantillaMedicina_encendido(enlace){
+        //obtener los elementos que voy a manipular :3
+        let img = document.querySelector("#Medicina");  
+        img.src="img/Plantilla_Medicina_funcion.jpg";
+        }
+        
+        function PlantillaMedicina_apagado (enlace) {
+            //obtener los elementos a manipular
+        let img = document.querySelector("#Medicina");
+        // manipular los elementos 
+        img.src="img/Educacionmedicina.jpg";
+        img.style.border ="none";
+        }
+
+        function PlantillaPlantas_encendido(enlace){
+        //obtener los elementos que voy a manipular :3
+        let img = document.querySelector("#Plantas");  
+        img.src="img/Plantilla_Plantas_funcion.jpg";
+        }
+        
+        function PlantillaPlantas_apagado (enlace) {
+            //obtener los elementos a manipular
+        let img = document.querySelector("#Plantas");
+        img.src="img/Educacionplantasflores.webp";
+        img.style.border ="none";
+        }
 
    </script>
 </head>
@@ -136,7 +146,7 @@
 
     <main>
         <div id="contenedorPrincipal">
-            <section id="sectionIzquierda">
+            <div id="sectionIzquierda">
                 <div class="itemsSection">
                     <img src="img/imgTableros.png" alt="imagen tablero">
                     <a href="tableros.html"><b>Tableros</b></a>
@@ -161,10 +171,10 @@
                 <p>Personalizar Plantillas</p>
                 <div class="itemsSection">
                     <img src="img/imgMiembros.png" alt="imagen tablero">
-                    <a href="FromPlantilla.html"><b>Personalizar</b></a>
+                    <a href="formPlantilla.html"><b>Personalizar</b></a>
                 </div>
 
-            </section>
+            </div>
 
             <section class="sectionDerecha">
                 <div class="categoriasDestacadas">
@@ -196,21 +206,27 @@
                 <div class="Educacion">
                     <h2>Educacion</h2> 
                     <div class="contenidoEducacion">
-                        <figure>
-                            <img id="LibrosapiladosEducacion" src="img/eduacionlibrosaplidados.jpg" onmouseenter="PlantillaLibros_encendido(this)" onmouseout="PlantillaLibros_apagado(this)"  alt="LibrosapiladosEducacion">
-                            <figcaption>PLantilla Libros</figcaption>
-                            <p>Por Kelly Theisen, profesora asistente de química Manténgase organizado en un entorno de aprendizaje</p>
-                        </figure>
-                        <figure>
-                            <img id="Medicina" src="img/Educacionmedicina.jpg" onmouseenter="PlantillaMedicina_encendido(this)" onmouseout="PlantillaMedicina_apagado(this)" alt="Medicina">
-                            <figcaption>PLantilla Medicina</figcaption>
-                            <p>Por lisiis, profesora asistente de química Manténgase organizado en un entorno de aprendizaje remoto</p>
-                        </figure>
-                        <figure>
-                            <img id="Plantas" src="img/Educacionplantasflores.webp" onmouseenter="PlantillaPlantas_encendido(this)" onmouseout="PlantillaPlantas_apagado(this)" alt="Plantas">
-                            <figcaption>PLantilla Plantas</figcaption>
-                            <p>Por lisiis, profesora asistente de química Manténgase organizado en un entorno de aprendizaje remoto</p>
-                        </figure>
+                        <div>
+                            <figure>
+                                <img id="LibrosapiladosEducacion" src="img/eduacionlibrosaplidados.jpg" onmouseenter="PlantillaLibros_encendido(this)" onmouseout="PlantillaLibros_apagado(this)"  alt="LibrosapiladosEducacion">
+                                <figcaption>PLantilla Libros</figcaption>
+                            </figure>
+                            <p>Por Kelly Theisen, profesora asistente de química Manténgase organizado en un entorno de aprendizaje</p>    
+                        </div>
+                        <div>
+                            <figure>
+                                <img id="Medicina" src="img/Educacionmedicina.jpg" onmouseenter="PlantillaMedicina_encendido(this)" onmouseout="PlantillaMedicina_apagado(this)" alt="Medicina">
+                                <figcaption>PLantilla Medicina</figcaption>
+                            </figure>
+                            <p>Por lisiis, profesora asistente de química Manténgase organizado en un entorno de aprendizaje remoto</p>    
+                        </div>
+                        <div>
+                            <figure>
+                                <img id="Plantas" src="img/Educacionplantasflores.webp" onmouseenter="PlantillaPlantas_encendido(this)" onmouseout="PlantillaPlantas_apagado(this)" alt="Plantas">
+                                <figcaption>PLantilla Plantas</figcaption>
+                            </figure>
+                            <p>Por lisiis, profesora asistente de química Manténgase organizado en un entorno de aprendizaje remoto</p>    
+                        </div>
                     </div>
                 </div>
             </section>

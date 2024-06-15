@@ -65,68 +65,69 @@
             <picture>
                 <img id="logo" src="img/Logo.jpg" alt="logo">
             </picture>
-            <a class="enlaceNavegacion" href="">Espacios de trabajo</a>
-            <a class="enlaceNavegacion" href="">Reciente</a>
-            <a class="enlaceNavegacion" href="">Marcado</a>
-            <a class="enlaceNavegacion" href="">Plantillas</a>
+            <a class="enlaceNavegacion" href="index.html">Espacios de trabajo</a>
+            <a class="enlaceNavegacion" href="board.html">Board</a>
+            <a class="enlaceNavegacion" href="tableros.html">Tableros</a>
+            <a class="enlaceNavegacion" href="plantillas.html">Plantillas</a>
             <div class="clear"></div>
-            <input id="buttonCrear" type="button" value="Crear">
         </nav>
     </header>
     <main>
         <div id="contenedorPrincipal">
-            <section id="sectionIzquierda">
+            <div id="sectionIzquierda">
                 <div class="itemsSection">
                     <img src="img/imgTableros.png" alt="imagen tablero">
-                    <h4>Tableros</h4>
+                    <a href="tableros.html"><b>Tableros</b></a>
                 </div>
                 <div class="itemsSection">
                     <img src="img/imgPlantillas.png" alt="imagen tablero">
-                    <h4>Plantillas</h4>
+                    <a href="plantillas.html"><b>Plantillas</b></a>
                 </div>
                 <div class="itemsSection">
                     <img src="img/imgInicio.png" alt="imagen tablero">
-                    <h4>Inicio</h4>
+                    <a href="index.html"><b>Inicio</b></a>
                 </div>
                 <div class="lineaDivisoria"></div>
+                
                 <p>Espacios de Trabajo</p>
+                
                 <div class="itemsSection">
                     <img src="img/imgMiembros.png" alt="imagen tablero">
-                    <h4>Miembros</h4>
+                    <a href="board.html"><b>Board</b></a>
                 </div>
-            </section>
+            </div>
             <section id="seccionDerecha">
                 <h2>Agregar Tarea</h2>
                 <form id="formularioTarea">
-                  <div class="grupo-formulario">
-                    <label for="proyecto">Proyecto:</label>
-                    <select id="proyecto" name="proyecto">
-                      <option value="">Selecciona un proyecto</option>
-                      <option value="proyecto1">Mi primer tablero</option>
-                      <option value="proyecto2">Educacion en casa</option>
-                    </select>
-                  </div>
-                  <div class="grupo-formulario">
-                    <label for="nombreTarea">Nombre de la tarea:</label>
-                    <input type="text" id="nombreTarea" name="nombreTarea">
-                  </div>
-                  <div class="grupo-formulario">
-                    <label for="descripcionTarea">Descripción:</label>
-                    <textarea id="descripcionTarea" name="descripcionTarea"></textarea>
-                  </div>
-                  <div class="grupo-formulario">
-                    <label for="fechaTarea">Fecha de vencimiento:</label>
-                    <input type="date" id="fechaTarea" name="fechaTarea">
-                  </div>
-                  <div class="grupo-formulario">
-                    <label for="prioridadTarea">Prioridad:</label>
-                    <select id="prioridadTarea" name="prioridadTarea">
-                      <option value="baja">Baja</option>
-                      <option value="media">Media</option>
-                      <option value="alta">Alta</option>
-                    </select>
-                  </div>
-                  <button type="submit">Agregar tarea</button>
+                    <div class="grupo-formulario">
+                        <label>Proyecto:</label>
+                        <select id="proyecto" name="proyecto">
+                            <option value="">Selecciona un proyecto</option>
+                            <option value="proyecto1">Mi primer tablero</option>
+                            <option value="proyecto2">Educacion en casa</option>
+                        </select>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label>Nombre de la tarea:</label>
+                        <input type="text" id="nombreTarea" name="nombreTarea">
+                     </div>
+                     <div class="grupo-formulario">
+                        <label>Descripción:</label>
+                        <textarea id="descripcionTarea" name="descripcionTarea"></textarea>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label>Fecha de vencimiento:</label>
+                        <input type="date" id="fechaTarea" name="fechaTarea">
+                    </div>
+                    <div class="grupo-formulario">
+                        <label>Prioridad:</label>
+                        <select id="prioridadTarea" name="prioridadTarea">
+                            <option value="baja">Baja</option>
+                            <option value="media">Media</option>
+                            <option value="alta">Alta</option>
+                        </select>
+                    </div>
+                    <button type="submit">Agregar tarea</button>
                 </form>
             </section> 
             <section id="lista-tareas">
@@ -165,12 +166,10 @@
                 return;
             }
 
-            
             // Crear un objeto de tarea
             const tarea = {proyecto: proyecto, nombreTarea: nombreTarea, descripcionTarea: descripcionTarea, 
             fechaTarea: fechaTarea, prioridadTarea: prioridadTarea};
 
-            // Añadir la tarea a la lista de tareas (reemplazar con tu mecanismo de almacenamiento de tareas)
             const listaTareas = document.getElementById('listaTareas');
             const elementoLista = document.createElement('li');
             elementoLista.textContent = `${tarea.nombreTarea} - Vencimiento: ${tarea.fechaTarea} - Descripcion: ${tarea.descripcionTarea}`;
